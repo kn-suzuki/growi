@@ -132,8 +132,21 @@
 
         {% if googleLoginEnabled() %}
         <hr>
+
+        <div class="input-group m-t-15 m-b-10 mx-auto"></div>
+        <form role="form" action="/login/google" method="get">
+          <input type="hidden" name="_csrf" value="{{ csrf() }}">
+          <button type="submit" class="fcbtn btn btn-danger btn-1b btn-login-google">
+            <span class="btn-label"><i class="icon-social-google"></i></span>
+            {{ t('Sign in') }}
+          </button>
+          <div class="small text-right">by Google Account</div>
+        </form>
+        {% endif %}
+
+        <hr>
         <div class="input-group m-t-15 m-b-10 mx-auto d-flex flex-row justify-content-around flex-wrap">
-          {#% if googleLoginEnabled() %#}
+          {#% if passportGoogleLoginEnabled() %#}
           <form role="form" action="/login/google" method="get">
             <input type="hidden" name="_csrf" value="{{ csrf() }}">
             <button type="submit" class="fcbtn btn btn-danger btn-1b btn-login-google">
@@ -143,7 +156,7 @@
             <div class="small text-right">by Google Account</div>
           </form>
           {#% endif %#}
-          {#% if githubLoginEnabled() %#}
+          {#% if passportGithubLoginEnabled() %#}
           <form role="form" action="/login/github" method="get">
             <input type="hidden" name="_csrf" value="{{ csrf() }}">
             <button type="submit" class="fcbtn btn btn-danger btn-1b btn-login-github">
@@ -153,7 +166,7 @@
             <div class="small text-right">by Github Account</div>
           </form>
           {#% endif %#}
-          {#% if facebookLoginEnabled() %#}
+          {#% if passportFacebookLoginEnabled() %#}
           <form role="form" action="/login/facebook" method="get">
             <input type="hidden" name="_csrf" value="{{ csrf() }}">
             <button type="submit" class="fcbtn btn btn-danger btn-1b btn-login-facebook">
@@ -163,7 +176,7 @@
             <div class="small text-right">by Facebook Account</div>
           </form>
           {#% endif %#}
-          {#% if twitterLoginEnabled() %#}
+          {#% if passportTwitterLoginEnabled() %#}
           <form role="form" action="/login/twitter" method="get">
             <input type="hidden" name="_csrf" value="{{ csrf() }}">
             <button type="submit" class="fcbtn btn btn-danger btn-1b btn-login-twitter">
@@ -174,7 +187,7 @@
           </form>
           {#% endif %#}
         </div>
-        {% endif %}
+
 
         <hr>
 
